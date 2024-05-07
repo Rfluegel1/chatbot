@@ -5,6 +5,10 @@ import numpy
 import nltk
 
 from nltk.stem import WordNetLemmatizer
-from tensorflow.keras.models import sequential
-from tensorflow.keras.layers import Dense, Activation, Dropout
-from tensorflow.keras.optimizers import SGD
+# from tensorflow.keras.models import sequential
+# from tensorflow.keras.layers import Dense, Activation, Dropout
+# from tensorflow.keras.optimizers import SGD
+
+
+def add(a, b):
+    return a + b
