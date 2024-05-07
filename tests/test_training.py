@@ -1,11 +1,23 @@
 import unittest
-from src.training import add
+import warnings
+
+from src.training import read_json
 
 
-class TestAddFunction(unittest.TestCase):
+class TestReadFunction(unittest.TestCase):
 
-    def test_add(self):
-        self.assertEqual(add(1, 2), 3)
+    def test_read(self):
+        filename = 'tests/valid.json'
+        expected = {'key': 'value'}
+        self.assertEqual(read_json(filename), expected)
 
-    def test_add_negative(self):
-        self.assertEqual(add(-1, 1), 0)
+    def test_file_close(self):
+        filename = 'tests/valid.json'
+
+        with warnings.catch_warnings(record=True) as w:
+            warnings.simplefilter("always")
+
+            read_json(filename)
+
+            for warning in w:
+                self.assertNotEqual(warning.category, ResourceWarning)

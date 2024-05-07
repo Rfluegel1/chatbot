@@ -11,5 +11,8 @@ from tensorflow.python.keras.layers import Dense, Activation, Dropout
 from tensorflow.python.keras.optimizer_v2 import gradient_descent as GSD
 
 
-def add(a, b):
-    return a + b
+def read_json(filename):
+    file = open(filename)
+    json_dict = json.loads(file.read())
+    file.close()
+    return json_dict
